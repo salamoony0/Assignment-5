@@ -913,21 +913,44 @@ margin: 3px;
 
 
 
-/* Mobile-First Responsive CSS */
+/* Mobile-First*/
+
+
+#toggle-menu {
+  display: none;
+}
+
+
+.hamburger {
+  display: block;
+  font-size: 26px;
+  cursor: pointer;
+  margin-left: auto;
+  padding: 10px;
+}
+
+/* no navbar in mobile */
+@media (max-width: 767px) {
+  .navbar .navbar-right {
+    display: none;
+  }
+  #toggle-menu:checked + .hamburger + .navbar-right {
+    display: block;
+    width: 100%;
+  }
+}
 
 /* Header navbar */
 .navbar {
   flex-direction: column;
   align-items: flex-start;
   padding: 10px;
+  position: relative;
 }
+
 .navbar .navbar-right ul {
   flex-direction: column;
   gap: 10px;
-}
-.navbar .navbar-right {
-  width: 100%;
-  margin-top: 10px;
 }
 
 #header-content .header-contentt {
@@ -988,21 +1011,25 @@ margin: 3px;
   width: 100%;
 }
 
-/* --- Desktop Enhancements --- */
-
+/* Media query */
 @media (min-width: 768px) {
+  .hamburger,
+  #toggle-menu {
+    display: none;
+  }
   .navbar {
     flex-direction: row;
     align-items: center;
     padding: 15px;
   }
+  .navbar .navbar-right {
+    display: block !important;
+    width: auto;
+    margin-top: 0;
+  }
   .navbar .navbar-right ul {
     flex-direction: row;
     gap: 10px;
-  }
-  .navbar .navbar-right {
-    width: auto;
-    margin-top: 0;
   }
 
   #header-content .header-contentt {
@@ -1100,6 +1127,9 @@ margin: 3px;
     font-size: 26px;
   }
 }
+
+
+
 
 
 
